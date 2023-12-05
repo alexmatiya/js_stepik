@@ -38,14 +38,39 @@
 // });
 
 
-let x = 5;
 
-let y = 10;
 
-console.log(x > y); // Выведет: false
+// let x = 5;
 
-console.log(x < y); // Выведет: true
+// let y = 10;
 
-console.log(x >= 5); // Выведет: true
+// console.log(x > y); // Выведет: false
 
-console.log(y <= 10); // Выведет: true
+// console.log(x < y); // Выведет: true
+
+// console.log(x >= 5); // Выведет: true
+
+// console.log(y <= 10); // Выведет: true
+
+
+
+
+// let number = 10;
+
+// if (number > 0) {
+
+//   console.log("Число положительное.");
+// }
+
+
+
+
+let age = 17;
+
+if (age >= 18) {
+
+  console.log("Вы совершеннолетний.");
+
+}
+
+console.log("Программа завершена.");
