@@ -92,3 +92,267 @@ for (let i = 1; i <= 5; i++) {
 	console.log("Это итерация номер", i);
 }
 ```
+
+функции
+```javascript
+// Создание функции
+
+function greetUser() {
+	console.log("Привет, пользователь");
+}
+
+// Вызов функции
+greetUser(); // круглые скобки обязательны при вызове
+```
+Вызвать функцию можно и до объявления функции. Это связано с тем, что Javascript инициализирует функции до выполнения кода:
+
+```javascript
+calculateSum(5, 10);
+
+function calculateSum(a, b) { 
+
+  console.log(a + b);
+
+}
+```
+
+```javascript
+function findMax(a, b) { 
+	return a > b ? a : b; 
+}
+```
+
+Традиционная функция:
+
+```javascript
+function addNumbers(a, b) {
+
+  return a + b;
+
+}
+```
+
+Стрелочная функция:
+
+```javascript
+let addNumbers = (a, b) => a + b;
+```
+
+методы обеъкта
+
+```javascript
+let car1 = {
+	brand: "Toyota",
+	model: "Camry",
+	start: function() {
+		console.log("Автомобиль заведен");
+	},
+	stop: function() {
+		console.log("Автомобиль заглушен");
+	},
+};
+```
+
+Ключевое слово `this` внутри метода ссылается на сам объект, в котором он находится. Пример:
+
+```javascript
+const person = {
+  name: "Василий",
+  sayName: function() {
+    console.log(this.name); // по смыслу то же, что и console.log(person.name)
+  }
+};
+person.sayName();
+```
+
+Получить доступ к объекту можно и без ключевого слова `this`, но такой вариант менее надежен, так как имя объекта может поменяться.  
+
+```javascript
+const person = {
+  name: "Василий",
+  sayName() {
+    console.log(person.name);
+  }
+};
+person.sayName();
+```
+
+Интерполяция - аналог f строк в python
+
+```javascript
+const name = "Петр";
+const greeting = `Будь внимательным, ${name}!!!`; console.log(greeting);// Результат: "Будь внимательным, Петр!!!"
+```
+
+# Методы строки
+
+- `toUpperCase()`: Преобразует все символы строки в верхний регистр.
+
+```javascript
+const myString = "Hello, World!";
+
+const upperCaseString = myString.toUpperCase();
+
+console.log(upperCaseString); // Выведет: "HELLO, WORLD!"
+```
+
+Получение подстроки в JavaScript означает извлечение части строки из исходной строки. Для этого используется метод `substring()` или метод `slice()`.
+
+Простыми словами, чтобы получить подстроку, вы указываете начальный и конечный индексы, которые определяют, какая часть строки будет вырезана.
+
+```javascript
+const myString = "Домодедово";
+
+// Получаем подстроку с индекса 0 до 2 (не включая 3)
+
+const subString1 = myString.substring(0, 3);
+
+console.log(subString1); // Выведет: "Дом"
+
+
+
+// Получаем подстроку с индекса 3 до 7 (не включая 8)
+
+const subString2 = myString.slice(3, 8);
+
+console.log(subString2); // Выведет: "одедо"
+
+
+
+// Получаем подстроку с индекса 8 до конца строки
+
+const subString3 = myString.substring(8);
+
+console.log(subString3); // Выведет: "во"
+```
+
+## Округление числа
+
+- `Math.round()`: Округляет число до ближайшего целого.
+
+```javascript
+console.log(Math.round(3.7)); // Выведет: 4
+```
+
+- `Math.floor()`: Округляет число вниз до ближайшего меньшего целого.
+
+```javascript
+console.log(Math.floor(3.7)); // Выведет: 3
+```
+
+- Math.ceil(): Округляет число вверх до ближайшего большего целого.
+
+```javascript
+console.log(Math.ceil(3.2)); // Выведет: 4
+```
+
+- `Math.random()`: Возвращает случайное число в интервале от 0 (включительно) до 1 (не включительно).
+
+```javascript
+const randomNum = Math.random(); // Случайное число от 0 до 1
+
+const randomNum = Math.round(Math.random() * 10); // случайное число от 0 до 10
+```
+
+
+# Добавление и удаление элементов
+
+Мы добавляем и удаляем элементы массива с помощью методов, при этом есть методы, работающие как с концом, так и с началом массива.
+
+- ### Методы, работающие с началом массива:
+    
+
+**Метод `shift`**: Удаляет первый элемент из массива и возвращает его.
+
+```javascript
+const colors = ["red", "green", "blue"];
+
+const firstColor = colors.shift(); // Удаляем первый элемент ("red") и сохраняем его в переменной firstColor
+
+console.log(colors); // Выведет: ["green", "blue"], первый элемент ("red") удален
+
+console.log(firstColor); // Выведет: "red", удаленный элемент сохранен в переменной firstColor
+```
+
+**Метод `unshift`**: Добавляет один или несколько элементов в начало массива.
+
+```javascript
+const animals = ["dog", "cat"];
+
+animals.unshift("rabbit", "elephant"); // Добавляем элементы "rabbit" и "elephant" в начало массива
+
+console.log(animals); // Выведет: ["rabbit", "elephant", "dog", "cat"]
+```
+
+- ### Методы, работающие с концом массива:
+    
+
+ **Метод `push`**: Добавляет один или несколько элементов в конец массива.
+
+```javascript
+const fruits = ["apple", "banana"];
+
+fruits.push("orange", "grape"); // Добавляем элементы "orange" и "grape" в конец массива
+
+console.log(fruits); // Выведет: ["apple", "banana", "orange", "grape"]
+```
+
+**Метод `pop`**: удаляет последний элемент из массива и возвращает его:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+const lastNumber = numbers.pop(); // Удаляем последний элемент (5) и сохраняем его в переменной lastNumber
+
+console.log(numbers); // Выведет: [1, 2, 3, 4], последний элемент (5) удален
+
+console.log(lastNumber); // Выведет: 5, удаленный элемент сохранен в переменной lastNumber
+```
+
+```javascript
+const fruits = ["apple", "banana", "orange"];
+
+for (const fruit of fruits) {
+	console.log(fruit); }
+```
+
+Синтаксис метода `map`:
+
+```javascript
+const array = [];
+
+const newArray = array.map((element) => {
+  // преобразование элемента
+  return transformedElement; 
+});
+```
+Пример использования метода:
+
+```javascript
+// Создаем исходный массив
+const numbers = [1, 2, 3, 4, 5];
+
+// Создаем новый массив, в котором все элементы должны быть увеличены на 2
+const increasedNumbers = numbers.map((number) => number + 2);
+
+console.log(increasedNumbers); // Выведет [3, 4, 5, 6, 7]
+```
+
+`filter` создает новый массив, содержащий элементы, которые удовлетворяют условию, заданному в переданной функции. Исходный массив остается неизменным.
+
+Пример использования `filter`:
+
+```javascript
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Используем метод filter для создания нового массива evenNumbers
+const evenNumbers = numbers.filter((number) => {
+  return number % 2 === 0; 
+
+  // в новый массив добавляются только те элементы, которые делятся на 2 без остатка
+});
+
+console.log(evenNumbers); // Выведет [2, 4]
+```
+con
